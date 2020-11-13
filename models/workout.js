@@ -20,7 +20,6 @@ const workoutSchema = new Schema({
             },
             duration: {
                 type: Number,
-                required: "Exercise Duration"
             },
             weight: {
                 type: Number
@@ -44,7 +43,7 @@ const workoutSchema = new Schema({
     }
 );
 // Adds dynamically created property to schema
-workoutSchema.virtual("titalDuration").get(function() {
+workoutSchema.virtual("totalDuration").get(function() {
     // Gives array of exercises as just the sum of their durations
     return this.exercises.reduce((total, exercise) => {
         return total + exercise.duration;
