@@ -4,7 +4,7 @@ module.exports = function(app) {
 
     app.get("/api/workouts", function(req, res) {
         Workout.find()
-            .the(data => {
+            .then(data => {
                 res.json(data)
             })
             .catch(err => {
@@ -33,4 +33,14 @@ module.exports = function(app) {
                 res.json(err)
             })
     });
+
+    app.get("/api/workouts/range", function(req, res) {
+        Workout.find({}).limit(5)
+            .then(data => {
+                res.json(data)
+            })
+            .catch(err => {
+                res.json(err)
+            })
+    })
 }
