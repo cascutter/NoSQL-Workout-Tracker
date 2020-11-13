@@ -13,7 +13,7 @@ app.use(morgan("dev"));
 // Setting up express to handle parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.statis("public"));
+app.use(express.static("public"));
 
 // Mongo db
 let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
