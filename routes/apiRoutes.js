@@ -1,4 +1,5 @@
 const Workout = require("../models/workout.js");
+require("mongoose");
 
 module.exports = function(app) {
 
@@ -35,7 +36,7 @@ module.exports = function(app) {
     });
 
     app.get("/api/workouts/range", function(req, res) {
-        Workout.find({}).limit(10)
+        Workout.find({})
             .then(data => {
                 res.json(data)
             })
